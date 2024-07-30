@@ -1,0 +1,4 @@
+baseURL: "https://teamoto.github.io/hugo-test-gh/"
+languageCode: en-us
+title: My New Hugo Site
+theme: PaperMod
