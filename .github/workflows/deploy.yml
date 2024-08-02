@@ -39,6 +39,7 @@ jobs:
           | cut -d ":" -f 2,3 | tr -d '"' \
           |  wget -qi - -O /tmp/hugo.tar.gz
           tar -C ${RUNNER_TEMP} -zxvf /tmp/hugo.tar.gz hugo
+          mv hugo 
       - name: Install Dart Sass
         run: sudo snap install dart-sass
       - name: Checkout
@@ -57,7 +58,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           TZ: America/New_York
         run: |
-          hugo \
+          ${RUNNER_TEMP}/hugo \
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" 
